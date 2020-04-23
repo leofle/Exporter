@@ -5,4 +5,20 @@ const AppWrapper = styled.div`
     background-color: hotpink;
 `;
 
-export { AppWrapper };
+const HeaderWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    ul {
+        list-style-type:none;
+        display:inline;
+    li {
+        margin: 5px;
+        display:inline;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+`;
+
+export { AppWrapper, HeaderWrapper };
