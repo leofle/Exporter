@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { AppWrapper } from '../../../style';
 import { Header } from './Header';
+import { Home } from './Home';
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
@@ -15,6 +16,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+export const MyContext = React.createContext(null);
 
 class App extends Component {
   constructor() {
@@ -33,9 +35,17 @@ class App extends Component {
         <Router>
           <Header/>
           <Switch>
-            <Route path="/" exact children={<h3>Zero</h3>} />
-            <Route path="/one" children={<h3>One</h3>} />
-            <Route path="/two" children={<h3>Two</h3>} />
+            <Route path="/" exact children={
+              <MyContext.Provider value={'balls'}>
+                <Home />
+              </MyContext.Provider>
+            } />
+            <Route path="/one" children={
+              <h3>One</h3>
+            } />
+            <Route path="/two" children={
+              <h3>Two</h3>
+            } />
           </Switch>
         </Router>
       </AppWrapper>
