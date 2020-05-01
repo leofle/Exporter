@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     font-family: sans-serif, Tahoma, Helvetica;
   }
+  #app {
+    min-height: 100%;
+    height: 100%;
+  }
 `
 import {
   BrowserRouter as Router,

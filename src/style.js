@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
-  width: 100%;
-  min-height: 100%;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 `;
 
 const TextBase = styled.p`
@@ -38,11 +40,13 @@ const Content = styled(Wrapper)`
 const HomeWrapper = styled(Wrapper)`
   flex-direction: column;
   padding: 10px;
+  flex:1;
 `;
 
 const FooterWrapper = styled(Wrapper)`
     align-items: center;
     justify-content: center;
+    flex:0;
 `;
 
 const HeaderWrapper = styled(Wrapper)`
