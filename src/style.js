@@ -73,7 +73,8 @@ const SettingsWrapper = styled(Wrapper)`
   border-radius: 5px;
   opacity: ${props=> props.show? 1 : 0};
   visibility: ${props=> props.show? 'visible' : 'hidden'};
-  border: 1px solid ${props=> props.dark? '#fff' : '#000'};
+  border: ${props=> props.dark && '1px solid #fff'};
+  box-shadow: ${props=> !props.dark && '0 2px 6px #ccc'};
   transition: all .3s ease;
   right: 20px;
   top: 50px;
