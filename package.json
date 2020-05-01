@@ -19,6 +19,7 @@
     "html-webpack-plugin": "^4.2.0",
     "pm2": "^4.3.1",
     "style-loader": "^1.1.4",
+    "svg-url-loader": "^5.0.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"

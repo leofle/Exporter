@@ -50,6 +50,7 @@ const FooterWrapper = styled(Wrapper)`
 `;
 
 const HeaderWrapper = styled(Wrapper)`
+  padding: 20px;
   justify-content: center;
   ul {
     list-style-type: none;
@@ -61,6 +62,30 @@ const HeaderWrapper = styled(Wrapper)`
       a {
         text-decoration: none;
       }
+    }
+  }
+`;
+
+const SettingsWrapper = styled(Wrapper)`
+  padding: 20px;
+  justify-content: space-between;
+  position: absolute;
+  border-radius: 5px;
+  opacity: ${props=> props.show? 1 : 0};
+  visibility: ${props=> props.show? 'visible' : 'hidden'};
+  border: 1px solid ${props=> props.dark? '#fff' : '#000'};
+  transition: all .3s ease;
+  right: 20px;
+  top: 50px;
+  transform: ${(props) =>
+      props.show? "translateY(40px)" : "translateY(0)"};
+  ul {
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    li {
+      display: flex;
     }
   }
 `;
@@ -104,15 +129,49 @@ const ToggleSwitch = styled.div`
     border-radius: 10px;
   }
 `;
+const Container = styled.div`
+  flex: ${props=> props.flex};
+`;
+
+const Icon = styled.img`
+  background: ${props=> props.imgUrl && `url(${props.imgUrl})`}; 
+`;
+
+const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => (props.dark? "#fff" : "#000")};
+  color: ${(props) => (props.dark? "#000" : "#fff")};
+  padding: 10px;
+  transition: all .3s ease;
+  border-radius: 10px;
+  font-size: 13px;
+  > img {
+    width: 25px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: ${(props) => (props.dark? "#000" : "#fff")};
+    color: ${(props) => (props.dark? "#fff" : "#000")};
+  }
+  &:focus {
+    outline: none;
+  }
+`;
 
 export { 
   AppWrapper,
+  Container,
   HeaderWrapper,
   ToggleWrapper,
   ToggleSwitch,
   HomeWrapper,
+  SettingsWrapper,
   FooterWrapper,
   SmallTextTitle,
   BigTextTitle,
-  Content
+  Content,
+  Button,
+  Icon
 };

@@ -2,40 +2,42 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Context } from '../store'
 import { ToggleWrapper, ToggleSwitch } from '../style'
 
-export const Toggle = () => {
-    const [state, dispatch] = useContext(Context);
+export const Toggle = ({handleChange, label, enabler, save}) => {
     const [enabled, setEnabled] = useState(null);
+    const [state, dispatch] = useContext(Context);
     const { darktheme } = state;
-    const darkLocal = 'darktheme';
 
     useEffect(()=> {
-        setEnabled(darktheme)
-    }, [darktheme]);
+        setEnabled(enabler)
+    }, [enabler]);
 
-    const handleChange = ()=> {
-        dispatch({ type: "SET_DARKTHEME", payload: darktheme });
-    }
+    const dispatchPayload = () => {
+        dispatch({ type: handleChange.type, payload: handleChange.payload });
+    };
 
-    const handleSwitch = ()=> {
-        let item = window.localStorage.getItem(darkLocal);
+    const saveToLocalStorage = ()=> {
+        if(!save) return;
+        let itemName = label.replace(/\s/g, "");
+        let item = window.localStorage.getItem(itemName);
         let parsedItem = JSON.parse(item);
         
         if (parsedItem) {
-            window.localStorage.setItem(darkLocal, JSON.stringify(!parsedItem));
+            window.localStorage.setItem(itemName, JSON.stringify(!parsedItem));
         } else {
-            window.localStorage.setItem(darkLocal, 'true');
+            window.localStorage.setItem(itemName, 'true');
         }
     }
+
     return (
         <ToggleWrapper dark={darktheme}>
-            <label>Dark Mode
+            <label>{label}
                 <ToggleSwitch 
-                    onClick={handleSwitch}
+                    onClick={saveToLocalStorage}
                     dark={darktheme}
                 >
                     <div/>
                 </ToggleSwitch>
-                <input type="checkbox" onChange={handleChange} {...enabled}/>
+                <input type="checkbox" onChange={dispatchPayload} {...enabled}/>
             </label>
         </ToggleWrapper>
     )

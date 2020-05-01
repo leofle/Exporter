@@ -10,6 +10,11 @@ const Reducer = (state, action) => {
                 ...state,
                 darktheme: !action.payload
             };
+        case 'TOGGLE_SETTINGS':
+            return {
+                ...state,
+                settings: action.payload
+            };
         default:
             return state;
     }

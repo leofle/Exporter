@@ -1,7 +1,7 @@
 import React, {createContext, useReducer} from "react";
 import Reducer from './Reducer'
 
-let dt = window.localStorage.getItem('darktheme')
+let dt = window.localStorage.getItem('DarkMode')
 if (dt === null) {
     dt = false;
 } else {
@@ -10,7 +10,8 @@ if (dt === null) {
 
 const initialState = {
     value: 'Country',
-    darktheme:  dt || false
+    darktheme:  dt || false,
+    settings: false
 };
 
 const Store = ({children}) => {
