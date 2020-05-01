@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { AppWrapper } from '../../../style';
-import { Header } from './Header';
-import { Home } from './Home';
+import { AppWrapper } from '../style';
+import { Header } from './Components/Header';
+import { Home } from './Components/Home';
 import { createGlobalStyle } from 'styled-components'
+import Store from "./store";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,29 +17,19 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-export const MyContext = React.createContext(null);
 
-class App extends Component {
-  constructor() {
-    super();
+const App = ()=> {
 
-    this.state = {
-      value: "sup bro?..."
-    };
-
-  }
-
-  render() {
     return (
       <AppWrapper>
         <GlobalStyle />
+        <Store>
+
         <Router>
           <Header/>
           <Switch>
             <Route path="/" exact children={
-              <MyContext.Provider value={'balls'}>
-                <Home />
-              </MyContext.Provider>
+              <Home />
             } />
             <Route path="/one" children={
               <h3>One</h3>
@@ -48,10 +39,10 @@ class App extends Component {
             } />
           </Switch>
         </Router>
+        </Store>
       </AppWrapper>
     );
   }
-}
 
 export default App;
 

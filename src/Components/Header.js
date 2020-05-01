@@ -1,5 +1,5 @@
 import React from "react";
-import {HeaderWrapper} from '../../../style';
+import {HeaderWrapper} from '../../style';
 import {
   Link
 } from "react-router-dom";
