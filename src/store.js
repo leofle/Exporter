@@ -1,10 +1,16 @@
 import React, {createContext, useReducer} from "react";
 import Reducer from './Reducer'
 
+let dt = window.localStorage.getItem('darktheme')
+if (dt === null) {
+    dt = false;
+} else {
+    dt = JSON.parse(dt)
+}
 
 const initialState = {
     value: 'Country',
-    darktheme: false
+    darktheme:  dt || false
 };
 
 const Store = ({children}) => {

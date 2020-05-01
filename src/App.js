@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { AppWrapper } from '../style';
+import { AppWrapper } from './style';
 import { Header } from './Components/Header';
 import { Home } from './Components/Home';
+import { Footer } from './Components/Footer';
 import { createGlobalStyle } from 'styled-components'
 import Store from "./store";
 
 const GlobalStyle = createGlobalStyle`
+  html,body { height:100%; }
   body {
     margin:0;
+    min-height: 100%;
     font-family: sans-serif, Tahoma, Helvetica;
   }
 `
@@ -24,7 +27,6 @@ const App = ()=> {
       <AppWrapper>
         <GlobalStyle />
         <Store>
-
         <Router>
           <Header/>
           <Switch>
@@ -38,6 +40,7 @@ const App = ()=> {
               <h3>Two</h3>
             } />
           </Switch>
+          <Footer/>
         </Router>
         </Store>
       </AppWrapper>
