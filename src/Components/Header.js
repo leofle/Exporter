@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from '../store'
-import {HeaderWrapper, Button, Container, SmallTextTitle} from '../style'
+import {HeaderWrapper, Button, Container, SmallTextTitle, ContainerFlex} from '../style'
 import {
   Link
 } from "react-router-dom";
@@ -15,6 +15,7 @@ export const Header = () => {
 
     return (
         <HeaderWrapper dark={darktheme}>
+            <ContainerFlex>
             <Container
                 display={'flex'}
                 flex={9}
@@ -46,6 +47,7 @@ export const Header = () => {
                     </svg>
                 </Button>
             </Container>
+            </ContainerFlex>
         </HeaderWrapper>
     )
 }

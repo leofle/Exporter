@@ -1,4 +1,20 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  html,body { height:100%; }
+  body {
+    margin:0;
+    min-height: 100%;
+    font-family: sans-serif, Tahoma, Helvetica;
+  }
+  #app {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 const AppWrapper = styled.div`
     width: 100%;
@@ -29,6 +45,23 @@ const Wrapper = styled.div`
   background-color: ${props=> props.dark? '#000':'#fff'};
   p,a {
     color: ${props=> props.dark? '#fff':'#000'};
+  }
+`;
+
+const ContainerFlex = styled.div`
+  display: flex;
+  flex-direction: ${props=> props.direction};
+  justify-content: space-between;
+  margin:${props=>props.margin};
+  width: 100%;
+  @media (min-width: 868px){
+    width: 850px;
+  }
+  @media (min-width: 1092px){
+    width: 1070px;
+  }
+  @media (min-width: 1300px){
+    width: 1200px;
   }
 `;
 
@@ -180,9 +213,11 @@ const Button = styled.button`
   }
 `;
 
-export { 
+export {
+  GlobalStyle,
   AppWrapper,
   Container,
+  ContainerFlex,
   HeaderWrapper,
   ToggleWrapper,
   CardWrapper,
