@@ -52,6 +52,7 @@ const ContainerFlex = styled.div`
   display: flex;
   flex-direction: ${props=> props.direction};
   justify-content: space-between;
+  position: ${props=>props.position};
   margin:${props=>props.margin};
   width: 100%;
   @media (min-width: 868px){
@@ -88,7 +89,7 @@ const HeaderWrapper = styled(Wrapper)`
   ul {
     list-style-type: none;
     display: inline;
-    li {
+    > li {
       display: inline;
       border-left: 1px solid #ccc;
       padding: 0 15px;
@@ -118,7 +119,7 @@ const SettingsWrapper = styled(Wrapper)`
   box-shadow: ${props=> !props.dark && '0 2px 6px #ccc'};
   transition: all .3s ease;
   right: 20px;
-  top: 50px;
+  top: 20px;
   transform: ${(props) =>
       props.show? "translateY(40px)" : "translateY(0)"};
   ul {

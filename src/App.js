@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { GlobalStyle, AppWrapper } from './style';
 import { Header } from './Components/Header';
 import { Home } from './Components/Home';
-import { Settings } from './Components/Settings';
 import { Footer } from './Components/Footer';
 import Store from "./store";
 
@@ -21,7 +20,6 @@ const App = ()=> {
         <Store>
         <Router>
           <Header/>
-          <Settings/>
           <Switch>
             <Route path="/" exact children={
               <Home />
