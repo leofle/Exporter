@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../store'
-import { HomeWrapper, BigTextTitle, Content } from '../style'
+import { Card } from './Card'
+import { HomeWrapper, BigTextTitle } from '../style'
 
 export const Home = () => {
     const [state, dispatch] = useContext(Context);
@@ -8,7 +9,7 @@ export const Home = () => {
     return (
         <HomeWrapper dark={darktheme}>
             <BigTextTitle>{ state.value }</BigTextTitle>
-            <Content dark={darktheme}/>
+            <Card dark={darktheme}/>
         </HomeWrapper>
     )
 }

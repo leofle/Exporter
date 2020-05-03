@@ -66,6 +66,14 @@ const HeaderWrapper = styled(Wrapper)`
   }
 `;
 
+const CardWrapper = styled(Wrapper)`
+  padding:20px;
+  flex-direction: column;
+  box-shadow: ${props=> !props.dark && '0 1px 6px #ccc'};
+  border-radius: 9px;
+  border: ${props=> props.dark && '1px solid #fff'};
+`;
+
 const SettingsWrapper = styled(Wrapper)`
   padding: 20px;
   justify-content: space-between;
@@ -131,11 +139,12 @@ const ToggleSwitch = styled.div`
   }
 `;
 const Container = styled.div`
+  display: ${props=> props.display};
   flex: ${props=> props.flex};
 `;
 
 const Icon = styled.img`
-  background: ${props=> props.imgUrl && `url(${props.imgUrl})`}; 
+  src: ${props=> props.src && `url(${props.src})`}; 
 `;
 
 const Button = styled.button`
@@ -148,13 +157,23 @@ const Button = styled.button`
   transition: all .3s ease;
   border-radius: 10px;
   font-size: 13px;
+  border: none;
   > img {
     width: 25px;
+  }
+  > p {
+    margin: 0 5px;
+    color: ${(props) => (props.dark? "#000" : "#fff")};
   }
   &:hover {
     cursor: pointer;
     background-color: ${(props) => (props.dark? "#000" : "#fff")};
-    color: ${(props) => (props.dark? "#fff" : "#000")};
+    p {
+      color: ${(props) => (props.dark? "#fff" : "#000")};
+    }
+    svg {
+      fill: ${(props) => (props.dark? "#fff" : "#000")};
+    }
   }
   &:focus {
     outline: none;
@@ -166,6 +185,7 @@ export {
   Container,
   HeaderWrapper,
   ToggleWrapper,
+  CardWrapper,
   ToggleSwitch,
   HomeWrapper,
   SettingsWrapper,
